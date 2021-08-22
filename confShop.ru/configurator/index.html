@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PC Builder</title>
+
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/css/main.css" rel="stylesheet">
+    <link type="text/css" href="/css/bootstrap-icons.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.5.14/dist/jspdf.plugin.autotable.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/configurator.js"></script>
+</head>
+<body>
+    <!-- Header Start -->
+    <!-- Header Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">PC Market</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/configurator/">Configurator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products/">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/prebuild-solutions/">Prebuilt Solutions</a>
+                    </li>
+                </ul>
+
+                <!-- Dropdown Start -->
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ComponentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            PC Components
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/products/?category=all">All Categories</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=cpu">CPU</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=motherboard">Motherboard</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=gpu">GPU</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=ram">RAM</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=fan">Fan</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=network">Network Card</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=drive">Hard Drive</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=ssd">Solid State Drive</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=power">Power Supply</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=case">Case</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=os">Operating System</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="PeripheralsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Peripherals
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/products/?category=keyboard">Keyboard</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=mouse">Mouse</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=display">Display</a></li>
+                            <li><a class="dropdown-item" href="/products/?category=headset">Headset</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="CurrencyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Currency
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><button class="dropdown-item choose-currency" currency="USD">Dollars</button></li>
+                            <li><button class="dropdown-item choose-currency" currency="RUB">Rubles</button></li>
+                            <li><button class="dropdown-item choose-currency" currency="UAH">Hryvnia</button></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Dropdown End -->
+            </div>
+        </div>
+    </nav>
+    <!-- Header End -->
+
+    <!-- Configuration PC Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <!-- Configuration Items Start -->
+                <div class="order-items-row">
+
+                    <div id="selector-cpu" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/cpu.svg" class="card-img-top" alt="CPU">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">CPU<span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">The main component of a computer, designed to control all its devices and perform arithmetic and logical operations on data..</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='cpu' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-cpu">
+
+                    </div>
+
+                    <div id="selector-fan" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/fan.svg" class="card-img-top" alt="Fan">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fan <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">A device consisting of a fan and a radiator. Needed to cool the processor, as well as remove hot air from the desktop.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='fan' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-fan">
+
+                    </div>
+
+                    <div id="selector-motherboard" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/motherboard.svg" class="card-img-top" alt="Motherboard">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Motherboard <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">The main board, which contains the main components of the computer that provide logic. The functionality of the computer depends on the motherboard, which is determined by the elements of the board itself and the devices connected to it..</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='motherboard' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-motherboard">
+
+                    </div>
+
+                    <div id="selector-gpu" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/gpu.svg" class="card-img-top" alt="GPU">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">GPU <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">Designed to generate and process images and then display them on the screen of a peripheral device</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='gpu' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-gpu">
+
+                    </div>
+
+                    <div id="selector-ram" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/ram.svg" class="card-img-top" alt="RAM">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">RAM <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">High-speed computer memory designed to write, store and read information during processing.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='ram' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-ram">
+
+                    </div>
+
+                    <div id="selector-network" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/network.svg" class="card-img-top" alt="Network Card">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Network card</h5>
+                                    <p class="card-text">A Network interface card (also known as a NIC, network card, or network interface controller) is an electronic device that connects a computer to a computer network, usually a LAN. It is considered a piece of computer hardware. ... Network cards let a computer exchange data with a network.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='network' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-network">
+
+                    </div>
+
+                    <div id="selector-drive" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/drive.svg" class="card-img-top" alt="Hard Drive">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Drive <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">Permanent computer storage device that provides long-term data storage.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='drive' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-drive">
+
+                    </div>
+
+                    <div id="selector-ssd" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/ssd.svg" class="card-img-top" alt="Hard Drive">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">SSD</h5>
+                                    <p class="card-text">Computer storage device based on memory chips and their control controller, which does not contain moving mechanical parts.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='ssd' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-ssd">
+
+                    </div>
+
+                    <div id="selector-power" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/power.svg" class="card-img-top" alt="Power Supply">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Power <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">Designed to provide computer components with DC power. Its task is to convert the mains voltage to the specified values ​​of the supply voltage, its stabilization and protection against minor interference from electrical supply networks</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='power' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-power">
+
+                    </div>
+
+                    <div id="selector-case" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/case.svg" class="card-img-top" alt="Case">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Case <span class="badge bg-warning text-dark">Importantly</span></h5>
+                                    <p class="card-text">Physically, it is a basic supporting structure, which is designed for further filling with hardware to create a computer.</p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='case' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-case">
+
+                    </div>
+
+                    <div id="selector-os" class="card text-white bg-primary mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/images/os.svg" class="card-img-top" alt="Operating System">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">OS</h5>
+                                    <p class="card-text">Basic set of programs that controls the hardware component of a computer or virtual machine; provides control of the computing process and organizes interaction with the user. </p>
+                                    <button type="button" class="btn btn-success btn-choose-to-config" component-criteria='os' data-bs-toggle="modal" data-bs-target="#selectComponent"><i class="bi bi-plus-lg"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="item-os">
+
+                    </div>
+
+                </div>
+                <!-- Configuration Items End -->
+            </div>
+
+            <div class="col-sm">
+                <!-- Configuration Price Start -->
+                <div class="order-items-row">
+
+                    <div class="card text-white bg-primary">
+                        <div class="card-header">
+                            Total Price
+                        </div>
+                        <div class="card-body">
+                            <h5 id="total-price" class="card-title"></h5>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary btn-proceed-configuration">Configurate <i class="bi bi-gear"></i></button>
+                                <button type="button" class="btn btn-danger btn-clear-all">Clean up <i class="bi bi-trash"></i></button>
+                                <button id="select-form-button" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Currency
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><button class="dropdown-item choose-currency" currency="USD">Dollars</button></li>
+                                    <li><button class="dropdown-item choose-currency" currency="RUB">Rubles</button></li>
+                                    <li><button class="dropdown-item choose-currency" currency="UAH">UAH</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Configuration Price End -->
+
+                <!-- Alert Start -->
+                <div id="proceed-alert" class="alert alert-danger" role="alert" style="display: none">
+                    The main components are not selected
+                </div>
+
+                <!-- Alert End -->
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Configuration PC End -->
+
+    <div class="modal fade" id="selectComponent" tabindex="-1" aria-labelledby="selectComponentLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="selectComponentLabel">Select a component</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="pc-config-array" class="order-items-row">
+
+                        <div>Searching for components by criteria ...</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="configuredPC" tabindex="-1" aria-labelledby="configuredPCLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="configuredPCLabel">Check your configuration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="order-items-row">
+
+                        <ul id="pc-configured-array">
+
+                        </ul>
+
+                    </div>
+                    <div class="mb-1">
+                        <button type="submit" class="btn btn-primary btn-save-pdf">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

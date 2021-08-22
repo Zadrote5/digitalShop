@@ -1,0 +1,29 @@
+div.order-items-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+div.modal-content {
+    padding: 16px;
+}
+
+div.order-items-row div.card, div.alert {
+    margin-top: 16px;
+    margin-bottom: 0 !important;
+}
+
+div.login-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+div.login-form-wrapper div.form-box {
+    margin-top: 32px;;
+    width: 75%;
+}
+
+#pc-configured-array {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
